@@ -1,0 +1,60 @@
+#-----------------------------Configuration for eccfinder You can MODIFY these parameters as you want :)-----------------------------------------
+args:
+ # this option it's for launch ont longreads analysis
+ - "map-ont"
+ # this option it's where you locate your fastqfiles 
+ - "/data/PAU29426_S13_sup.fastq"
+
+ - "-r"
+ # this option it's where you locate your fastafiles for reference genome
+ - "/data/S.meliloti2011complete.fasta"
+
+#--------------------------config for Tandem Repeat Criteria--------------------------------------------
+ - "-n"
+#-----minimum copy number of tandem repeat in a long read (>=2) [2]-----------------------------------------
+ - "2"
+#--------------------------------------
+ - "-e"
+#------------------maximum allowed divergence rate between two consecutive repeats--------------------
+ - "0.25"
+#----------------------------------------------------------------------------------------------
+ - "-s"
+#---minimum period size of tandem repeat (>=2) [30]---------------------
+ - "30"
+#-----------------------end config tandem repeat------------------------------------------
+
+#---------------------------Config for region of peak probably circle---------------------
+# - "-yv"
+ - "-l"
+#---Minimum length of a peak--------------------------------------------------------------
+ - "200"
+#-----------------------------------------------------------------------------------------
+ - "-d"
+#---Maximum distance between signif. sites (def. 100)-------------------------------------
+ - "100"
+#-----------------------------------------------------------------------------------------
+ - "-p"
+#--------Maximum p-value (def. 0.01)------------------------------------------------------
+ - "0.06"
+
+#-------------------end of Gene enrichment------------------------------------------------
+
+#------------------------Config for filtering region--------------------------------------
+
+ - "--min-read"
+#----------------------filter locus by unique mapped read number-------------------------
+ - "3"
+#----------------------------------------------------------------------------------------
+
+ - "--min-bound"
+#------filter locus at regions by boundary coverage---------------------------------------
+ - "0.8"
+#-----------------------------------------------------------------------------------------
+ - "--min-cov"
+#---------------------minimum coverage of detected eccDNA loci----------------------------
+ - "10"
+#--------------------------end filtering locus regions------------------------------------
+
+#------------------------------END Configuration------------------------------------------
+
+
