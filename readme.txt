@@ -32,5 +32,5 @@ conda env update -f paquets2.yml –prune
 
 4- execute the script with the data
 
-python exe_ecc.py map-ont /data/PAU29426_S13_sup.fastq -r /data/S.meliloti2011complete.fasta
+python exe_ecc.py map-ont /data/PAU29426_S13_sup_head30000.fastq -r /data/S.meliloti2011complete.fasta
 
