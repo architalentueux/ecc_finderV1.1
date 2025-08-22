@@ -3,11 +3,11 @@ args:
  # this option it's for launch ont longreads analysis
  - "map-ont"
  # this option it's where you locate your fastqfiles 
- - "/data/PAU29426_S13_sup_head30000.fastq"
+ - "./data/PAU29426_S13_sup_head3000.fastq"
 
  - "-r"
  # this option it's where you locate your fastafiles for reference genome
- - "/data/S.meliloti2011complete.fasta"
+ - "./data/S.meliloti2011complete.fasta"
 
 #--------------------------config for Tandem Repeat Criteria--------------------------------------------
  - "-n"

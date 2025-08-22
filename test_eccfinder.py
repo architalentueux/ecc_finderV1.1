@@ -414,7 +414,7 @@ def main():
     max_dist = args.d
     max_pvalue = args.p
     ######### call GeneRich##################################################################################
-    #run_Genrich(file_prefix, output_path, peak_path, num_threads, min_peak, max_dist, max_pvalue, overwrite_files)
+    run_Genrich(file_prefix, output_path, peak_path, num_threads, min_peak, max_dist, max_pvalue, overwrite_files)
 
     #################################### PARAMETERS FILTERED BED #################################################
     #val_options.add_argument("--min-read", metavar="INT", type=int, default=3, help="filter locus by unique mapped read number [3]")
