@@ -28,7 +28,7 @@ Tool for eccdna analysis using ONT only
  
    - conda create -n eccdna_master
 
-### 2- Activate de Environment
+### 2- Activate the Environment
 
    - conda activate eccdna_master
 
