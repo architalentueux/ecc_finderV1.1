@@ -17,6 +17,9 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 
 # II- Process To launch Eccfinder on ont map-ont
+0- download the software from the repository
+
+   git clone https://github.com/architalentueux/ecc_finderV1.1.git
 
 1- create environmment
  
@@ -33,10 +36,6 @@ conda config --set channel_priority strict
 4- config file config.yaml for configuration of parameters you wan
      
 
-<<<<<<< HEAD
 5- execute the script with the data in config.yaml (there is some default parameters in config.yaml)
-=======
-python exe_ecc.py map-ont /data/PAU29426_S13_sup_head30000.fastq -r /data/S.meliloti2011complete.fasta
->>>>>>> c1925922080ddff0f88064c0998162bf83a1c392
 
    python exe.py 

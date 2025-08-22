@@ -1,6 +1,6 @@
 # ecc_finderV1.1
 Tool for eccdna analysis using ONT only 
-## I- This First Step it's if you doesn't have Miniconda3 you can skip that
+## I- Install Miniconda3 First
 
 
   - mkdir -p ~/miniconda3
@@ -20,6 +20,10 @@ Tool for eccdna analysis using ONT only
 
 ## II- Process To launch Eccfinder on ont map-ont
 
+### 0- download the tool
+
+   - git clone https://github.com/architalentueux/ecc_finderV1.1.git
+
 ### 1- create environmment
  
    - conda create -n eccdna_master
@@ -32,9 +36,10 @@ Tool for eccdna analysis using ONT only
 
    - conda env update -f packages.yml –prune
 
-### 4- config file config.yaml for configuration of parameters you want
-     
+### 4- config file config.yaml
 
-### 5- execute the script with the data in config.yaml (there is some default parameters in config.yaml)
+   - configuration with parameters you want in config.yaml
+
+### 5- execute the script 
 
    - python exe.py 
