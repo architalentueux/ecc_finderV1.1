@@ -3,7 +3,7 @@ args:
  # this option it's for launch ont longreads analysis
  - "map-ont"
  # this option it's where you locate your fastqfiles 
- - "/data/PAU29426_S13_sup.fastq"
+ - "/data/PAU29426_S13_sup_head30000.fastq"
 
  - "-r"
  # this option it's where you locate your fastafiles for reference genome

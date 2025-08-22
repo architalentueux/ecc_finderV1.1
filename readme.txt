@@ -1,4 +1,4 @@
-I- This First Step it's if you doesn't have Miniconda3 you can skip that
+#I- This First Step it's if you doesn't have Miniconda3 you can skip that
 
 
 mkdir -p ~/miniconda3
@@ -18,19 +18,21 @@ conda config --set channel_priority strict
 
 # II- Process To launch Eccfinder on ont map-ont
 
-1 – create environmment
+1- create environmment
  
-conda create -n eccdna_master
+   conda create -n eccdna_master
 
 2- Activate de Environment
 
-conda activate eccdna_master
+   conda activate eccdna_master
 
 3- upload the packages
 
-conda env update -f paquets2.yml –prune
+   conda env update -f packages.yml –prune
 
-4- execute the script with the data
+4- config file config.yaml for configuration of parameters you wan
+     
 
-python exe_ecc.py map-ont /data/PAU29426_S13_sup.fastq -r /data/S.meliloti2011complete.fasta
+5- execute the script with the data in config.yaml (there is some default parameters in config.yaml)
 
+   python exe.py 
