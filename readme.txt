@@ -21,6 +21,8 @@ conda config --set channel_priority strict
 
    git clone https://github.com/architalentueux/ecc_finderV1.1.git
 
+   cd ecc_finderV1.1
+
 1- create environmment
  
    conda create -n eccdna_master
