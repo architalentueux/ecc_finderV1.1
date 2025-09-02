@@ -60,8 +60,24 @@ def read_genome_alignments(file_prefix,align_path,min_qlen,min_aln, overwrite_fi
 
 
 
-def run_TideHunter(file_prefix,query_file,peak_path, num_threads, max_divergence,min_period_size,num_copies,overwrite_files):
+def run_Porechop(file_prefix, query_file, peak_path, overwrite_files):
+    """Run Porechop to trim adapters from reads."""
+    query_fileporechop = os.path.join(peak_path, f"{file_prefix}.fastq")
+
+    if os.path.isfile(query_fileporechop) and not overwrite_files:
+        log("INFO", f"Retaining pre-existing file: {query_fileporechop}")
+        return query_fileporechop
+
+    log("INFO", f"Running Porechop on {query_file}")
+    cmd = f"porechop -i {query_file} -o {query_fileporechop} --middle_threshold 75"
+    subprocess.call(cmd, shell=True)
+
+    return query_fileporechop
+
+
+def run_TideHunter(file_prefix,query_fileporechop,peak_path, num_threads, max_divergence,min_period_size,num_copies,overwrite_files):
     #""" Spliting tandem repeats in one long read. """
+    #query_fileporechop = os.path.join(peak_path, f"{file_prefix}.fastq")
     if os.path.isfile(peak_path +file_prefix+".unit.fa"):
         if not overwrite_files:
             log("INFO", "Retaining pre-existing file: " + peak_path +file_prefix+".unit.fa")
@@ -71,14 +87,14 @@ def run_TideHunter(file_prefix,query_file,peak_path, num_threads, max_divergence
             TH_params += " -t " + str(num_threads) +" -e " +str(max_divergence) +" -p " + str(min_period_size)+ " -P 1000000 "
             #TH_cmd = "./TideHunter/TideHunter-v1.5.5/bin/TideHunter"+ TH_params+ str(query_file)+ " -u > "+ peak_path +file_prefix+".unit.fa"
 
-            TH_cmd = "TideHunter" + TH_params + str(query_file) + " -u > " + peak_path + file_prefix + ".unit.fa"
+            TH_cmd = "TideHunter" + TH_params + str(query_fileporechop) + " -u > " + peak_path + file_prefix + ".unit.fa"
 
             subprocess.call(TH_cmd, shell=True)
     else:
         TH_params = " -c "+ str(num_copies)
         TH_params += " -t " + str(num_threads) +" -e " +str(max_divergence) +" -p " + str(min_period_size)+ " -P 1000000 "
         #TH_cmd = "./TideHunter/TideHunter-v1.5.5/bin/TideHunter"+ TH_params+ str(query_file)+ " -u > "+ peak_path +file_prefix+".unit.fa"
-        TH_cmd = "TideHunter" + TH_params + str(query_file) + " -u > " + peak_path + file_prefix + ".unit.fa"
+        TH_cmd = "TideHunter" + TH_params + str(query_fileporechop) + " -u > " + peak_path + file_prefix + ".unit.fa"
         subprocess.call(TH_cmd, shell=True)
 
 ######################################SAMTOOLS######################################################################
@@ -384,8 +400,14 @@ def main():
     # Splitting into unit sequences of each tandem repeat for a long read
     log("INFO", "Detecting tandem repeat pattern from long reads")
     log("INFO", "./test_eccfinder.py")
-    run_TideHunter(file_prefix, query_file, peak_path, num_threads, max_divergence, min_period_size, num_copies,
+    log("INFO", "Trimm adaptators")
+    run_Porechop(file_prefix, query_file, peak_path, overwrite_files)
+    log("INFO", "Trimmed adaptators")
+    query_fileporechop = os.path.join(peak_path, f"{file_prefix}.fastq")
+    
+    run_TideHunter(file_prefix, query_fileporechop, peak_path, num_threads, max_divergence, min_period_size, num_copies,
                    overwrite_files)
+    log("INFO", "End Tiding Hunter")
     ######################################################################################
 
     # peak calling
