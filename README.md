@@ -40,6 +40,8 @@ Tool for eccdna analysis using ONT only
 
    - conda env update -f packages.yml –prune
 
+   - cp genrich_custom/Genrich $CONDA_PREFIX/bin/
+
 ### 4- config file config.yaml
 
    - configuration with parameters you want in config.yaml

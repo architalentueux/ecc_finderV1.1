@@ -31,9 +31,11 @@ conda config --set channel_priority strict
 
    conda activate eccdna_master
 
-3- upload the packages
+3-1 upload the packages
 
    conda env update -f packages.yml –prune
+3-2 add genrich
+   cp genrich_custom/Genrich $CONDA_PREFIX/bin/
 
 4- config file config.yaml for configuration of parameters you wan
      
