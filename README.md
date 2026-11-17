@@ -49,3 +49,15 @@ Tool for eccdna analysis using ONT only
 ### 5- execute the script 
 
    - python exe.py 
+
+**Table 1. Example of eccFinder2 output columns ()**
+
+| Column name | Description | Example of output value |
+|:------------|:------------|:-----------------------:|
+| `chrom` | Chromosome name | `Chr1` |
+| `chromStart` | Starting position | `567722` |
+| `chromEnd` | Ending position | `569011` |
+| `Nb_reads` | Number of circular reads from rolling circle amplification (RCA) | `7` |
+| `Nb_hits` | Coverage value (coverage) | `15` |
+| `Peak_size` | Size of peak | `1289` |
+| `Pvalue` | Statistical value for peak detection | `5.077` |
